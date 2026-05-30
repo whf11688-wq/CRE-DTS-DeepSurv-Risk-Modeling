@@ -35,16 +35,27 @@ Where:
 To penetrate the shadow banking black box, the system bypasses standard voluntary institutional disclosures. By utilizing specialized data parsing algorithms developed via Python, the model ingests non-traditional indicators: municipal property title re-registrations, corporate leadership attrition rates on professional networks, and local commercial litigation filiations. This alternative data matrix exposes hidden distress signals 6 to 12 months before they manifest in official regulatory filings.
 
 [Alternative Data Input: NLP Legal Filings + Municipal Registries]
+                             
                              │
+                             
                              ▼
+              
               [CRE-DTS Survival Engine: S(t)]
+                             
                              │
+                             
                              ▼
+                             
       [Dynamic Temporal Risk Window Identification (6-12 Mo)]
+                             
                              │
+                             
                              ▼
+    
     [Strategic Asset Repositioning Strategy Selection (HBU Analysis)]
+        
         ├──> Path A: Office-to-Data Center (STEM/Digital Infrastructure)
+        
         └──> Path B: Office-to-Multifamily (Urban Housing Supply)
 
 
