@@ -34,6 +34,7 @@ Where:
 ### 3.2. Alternative Data Panopticon for Shadow Credit Tracking
 To penetrate the shadow banking black box, the system bypasses standard voluntary institutional disclosures. By utilizing specialized data parsing algorithms developed via Python, the model ingests non-traditional indicators: municipal property title re-registrations, corporate leadership attrition rates on professional networks, and local commercial litigation filiations. This alternative data matrix exposes hidden distress signals 6 to 12 months before they manifest in official regulatory filings.
 
+
 [Alternative Data Input: NLP Legal Filings + Municipal Registries]
                              
                              │
