@@ -23,9 +23,7 @@ Author: Ho Fan Wu
 
 ## 3. Methodology: The CRE-DTS Machine Learning Architecture
 To resolve these systemic blind spots, this paper proposes the CRE-DTS (Dynamic Time-to-Event System). By synthesizing quantitative financial engineering with survival analysis machine learning, the framework shifts the paradigm from binary default classification to temporal, adaptive intervention.3.1. Mathematical Formulation of Temporal Default WindowsInstead of modeling whether an asset will default ($PD \in [0,1]$), the system applies a machine-learning-driven Cox Proportional Hazards Model to calculate when an asset will default. The dynamic survival probability $S(t)$ over a time horizon $t$ is expressed as:
-$$
-S(t) = P(T > t) = \exp\left( -\int_0^t \lambda_0(u) \exp(\beta^T X) du \right)
-$$
+$$S(t) = P(T > t) = \exp\left( -\int_0^t \lambda_0(u) \exp(\beta^T X) du \right)$$
 Where:$\lambda_0(u)$ represents the baseline hazard function under severe macroeconomic stress.$X$ is a vector of high-dimensional alternative covariates, including real-time metropolitan mobility data, localized corporate downsizing velocity, and contractual lease expirations extracted via Natural Language Processing (NLP).$\beta$ represents the learned non-linear weights of risk factors under high-interest-rate shocks.3.2. Alternative Data Panopticon for Shadow Credit TrackingTo penetrate the shadow banking black box, the system bypasses standard voluntary institutional disclosures. By utilizing specialized data parsing algorithms developed via Python, the model ingests non-traditional indicators: municipal property title re-registrations, corporate leadership attrition rates on professional networks, and local commercial litigation filiations. This alternative data matrix exposes hidden distress signals 6 to 12 months before they manifest in official regulatory filings.[Alternative Data Input: NLP Legal Filings + Municipal Registries]
                              │
                              ▼
