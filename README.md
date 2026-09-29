@@ -1,5 +1,4 @@
 # CRE-DTS-DeepSurv-Risk-Modeling
-CRE-DTS model is a forward-looking framework for assessing CRE credit risk at U.S. financial institutions , with a particular focus on small- and mid-sized CRE lending and investment. 
 Algorithmic Financial Salvage: Mitigating the 2026 Commercial Real Estate Maturity Wall through Dynamic Repositioning and Machine Learning
 Author: Ho Fan Wu
 
@@ -354,3 +353,72 @@ The data layer in this document is the input to Phase 1 and supplies the
 time-varying signals consumed in Phase 2.
 
 ---
+
+## How to reproduce
+
+This section covers the code added **after** the petition was filed (September 2026). The research manuscript and the data-layer document above, and the prototype files committed in May–June 2026, are unchanged; those prototypes run on random or synthetic inputs and produce no performance results.
+
+CRE-DTS is a forward-looking framework for assessing CRE credit risk at U.S. financial institutions, with a particular focus on small- and mid-sized CRE lending and investment. Two notes on the earlier sections: the entity-resolution example in Section 5 is committed as `entity_resolution_Layer.py`; and the build order in Section 8 is the preliminary pre-filing sequence — the current roadmap is in the Technical Design Specification, Section 10.2.
+
+Nothing here uses real loan data. All results below come from synthetic data and show that the code runs and reproduces; they are not evidence of predictive accuracy on real loans. This repository contains no Baseline Partners model, code, or loan data.
+
+### Release
+
+- Tag: `v0.1` <!-- TODO: after pushing, replace [hash] below with the commit hashes -->
+- Commits added for this release: `[hash]` (core package), `[hash]` (unit tests), `[hash]` (illustrative outputs), `[hash]` (adoption walkthroughs), `[hash]` (environment, license and this section)
+- The 17 pre-filing commits (29 May – 15 June 2026, last `e10249f`) are not altered.
+- License: Apache License 2.0 (`LICENSE`), added in this release; it applies to the repository as of `v0.1`.
+
+### 1. Set up the environment
+
+Requires Python 3.11.
+
+```bash
+git clone https://github.com/whf11688-wq/CRE-DTS-DeepSurv-Risk-Modeling
+cd CRE-DTS-DeepSurv-Risk-Modeling
+git checkout v0.1
+python3.11 -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+pip install -e .
+```
+
+### 2. Run the unit tests
+
+```bash
+pytest
+```
+
+Expected: `15 passed`. The tests cover the refinance gap, the point-in-time data rule and leakage check, default and censoring labels, purged time-ordered folds, the Track A monotone constraint, and the Track C (DeepSurv) Cox loss. See Technical Design Specification v1.10, Appendix B.
+
+### 3. Run the illustrative outputs (synthetic data)
+
+```bash
+python examples/illustrative_outputs.py
+```
+
+Shows the output format — 12-month PD (Track A), PD term structure and survival curves (Track C), risk bands and reason codes — on a synthetic 6,000-loan book with a built-in default process (seed 11). Writes `examples/out/illustrative_outputs.json` and `examples/out/survival_curves.png`. See Technical Design Specification v1.10, Appendix C.
+
+### 4. Run the adoption walkthroughs (synthetic data)
+
+```bash
+python examples/adoption_demo.py
+python examples/small_lender_demo.py
+```
+
+`adoption_demo.py` builds a synthetic loan book for a fictional lender ("Institution X"), maps its tape to the data dictionary, validates out of time, calibrates watch-level thresholds and produces a watchlist (Method-to-Decision Mapping, Attachment 1). `small_lender_demo.py` runs the Tier 1 reference-scoring path for a fictional small lender ("Institution Y") that holds too few defaults for its own validation (Mapping, Attachment 2; Specification Section 12.4). Both write their results to `examples/out/`. With the fixed seed (2026), `adoption_demo.py` gives:
+
+| Output | Expected value |
+|---|---|
+| Loan-quarter observations | 58,831 |
+| Out-of-time test ROC-AUC (2022–2023) | 0.83 |
+| Default capture in the riskiest 10% | 62% |
+| Rule-based screen (DSCR < 1.0x or LTV > 80%) | flags 25%, captures 64% |
+| Model at the same flag rate | captures 75% |
+| Current-book watchlist (2024 Q4, 1,203 loans) | High 157 · Elevated 33 · Watch 267 · Standard 746 |
+
+Running each script twice produces identical results files.
+
+### Not yet included
+
+These are planned and are **not** part of `v0.1`: the ABS-EE data pipeline and real-data results, Track B (LSTM), the stacking ensemble, logistic and rule-based benchmark modules, the stress-scenario module, portfolio aggregation, and a container image.
