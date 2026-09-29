@@ -364,8 +364,8 @@ Nothing here uses real loan data. All results below come from synthetic data and
 
 ### Release
 
-- Tag: `v0.1` <!-- TODO: after pushing, replace [hash] below with the commit hashes -->
-- Commits added for this release: `[hash]` (core package), `[hash]` (unit tests), `[hash]` (illustrative outputs), `[hash]` (adoption walkthroughs), `[hash]` (environment, license and this section)
+- Tag: `v0.1` (commit `b400e96`, 29 September 2026).
+- Commits added after filing, all on 29 September 2026: `c3f6bd9` (README edit made through the GitHub web interface; its text is superseded by `b400e96`), `4a8cc3d` (core package), `0dbc23b` (unit tests), `3ef7dad` (illustrative outputs), `c599241` (adoption walkthroughs), `b400e96` (environment, license and this section). The commit hashes in this list were added in the commit that follows `v0.1`.
 - The 17 pre-filing commits (29 May – 15 June 2026, last `e10249f`) are not altered.
 - License: Apache License 2.0 (`LICENSE`), added in this release; it applies to the repository as of `v0.1`.
 
