@@ -1,0 +1,139 @@
+{
+  "seed": 11,
+  "n_loans": 6000,
+  "n_defaults_5y": 723,
+  "n_defaults_12m": 169,
+  "n_calibration": 1500,
+  "track_c_in_sample_c_index": 0.761,
+  "band_cutoffs": {
+    "High": 0.1,
+    "Elevated": 0.03
+  },
+  "note": "Synthetic data only; output format, not evidence of predictive accuracy on real loans.",
+  "loans": [
+    {
+      "loan": "Loan 1 (office)",
+      "dscr": 2.06,
+      "ltv_current": 0.97,
+      "months_to_maturity": 9,
+      "refi_gap": 0.381,
+      "pd_12m_track_a": 0.333,
+      "cum_pd_1y_track_c": 0.449,
+      "cum_pd_3y_track_c": 0.86,
+      "cum_pd_5y_track_c": 0.983,
+      "risk_band": "High",
+      "reasons": [
+        {
+          "code": "R02",
+          "text": "Maturity in 9 months",
+          "shap": 1.306
+        },
+        {
+          "code": "R01",
+          "text": "Refinance gap of 38%: balloon balance not refinanceable on current terms",
+          "shap": 0.987
+        },
+        {
+          "code": "R03",
+          "text": "Current LTV of 97%",
+          "shap": 0.427
+        }
+      ],
+      "survival_curve_track_c": [
+        1.0,
+        0.9153,
+        0.7898,
+        0.6486,
+        0.5514,
+        0.4655,
+        0.4085,
+        0.3569,
+        0.2934,
+        0.2358,
+        0.1947,
+        0.1678,
+        0.1404,
+        0.1085,
+        0.0866,
+        0.0691,
+        0.0549,
+        0.0406,
+        0.028,
+        0.022,
+        0.017
+      ]
+    },
+    {
+      "loan": "Loan 2 (retail)",
+      "dscr": 2.0,
+      "ltv_current": 0.75,
+      "months_to_maturity": 20,
+      "refi_gap": 0.133,
+      "pd_12m_track_a": 0.007,
+      "cum_pd_1y_track_c": 0.027,
+      "cum_pd_3y_track_c": 0.087,
+      "cum_pd_5y_track_c": 0.172,
+      "risk_band": "Standard",
+      "reasons": [],
+      "survival_curve_track_c": [
+        1.0,
+        0.9959,
+        0.9892,
+        0.9802,
+        0.9729,
+        0.9653,
+        0.9595,
+        0.9535,
+        0.9449,
+        0.9354,
+        0.9272,
+        0.9208,
+        0.9133,
+        0.9025,
+        0.8931,
+        0.8839,
+        0.8745,
+        0.8624,
+        0.8478,
+        0.8383,
+        0.8284
+      ]
+    },
+    {
+      "loan": "Loan 3 (multifamily)",
+      "dscr": 1.94,
+      "ltv_current": 0.63,
+      "months_to_maturity": 48,
+      "refi_gap": 0.0,
+      "pd_12m_track_a": 0.007,
+      "cum_pd_1y_track_c": 0.006,
+      "cum_pd_3y_track_c": 0.019,
+      "cum_pd_5y_track_c": 0.039,
+      "risk_band": "Standard",
+      "reasons": [],
+      "survival_curve_track_c": [
+        1.0,
+        0.9991,
+        0.9977,
+        0.9958,
+        0.9942,
+        0.9925,
+        0.9912,
+        0.9899,
+        0.988,
+        0.9859,
+        0.984,
+        0.9826,
+        0.9809,
+        0.9784,
+        0.9762,
+        0.9741,
+        0.9719,
+        0.969,
+        0.9655,
+        0.9632,
+        0.9607
+      ]
+    }
+  ]
+}
