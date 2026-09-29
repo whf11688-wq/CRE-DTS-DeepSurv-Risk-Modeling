@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cre-dts"
+version = "0.1.0"
+description = "CRE-DTS: forward-looking CRE credit-risk components (refinance gap, point-in-time features, Track A XGBoost, Track C DeepSurv)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Ho Fan Wu" }]
+dependencies = ["numpy", "pandas", "scipy", "scikit-learn", "xgboost", "torch", "pyyaml"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

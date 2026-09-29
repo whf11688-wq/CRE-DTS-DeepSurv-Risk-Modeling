@@ -1,0 +1,9 @@
+# Underwriting limits and lending spreads for a NEW loan, by property type (Technical Design Specification,
+# Section 4.3 and Appendix A.6). These are illustrative defaults. Each institution sets its own values
+# (Appendix A.9, "institution-set" parameters); the formulas do not change.
+amort_years: 30          # amortization term used in the debt constant k(r)
+property_types:
+  office:      { spread: 0.0275, dscr_min: 1.35, ltv_max: 0.60, dy_min: 0.100 }
+  multifamily: { spread: 0.0175, dscr_min: 1.25, ltv_max: 0.70, dy_min: 0.080 }
+  retail:      { spread: 0.0250, dscr_min: 1.35, ltv_max: 0.65, dy_min: 0.095 }
+  industrial:  { spread: 0.0200, dscr_min: 1.30, ltv_max: 0.65, dy_min: 0.090 }
