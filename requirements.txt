@@ -1,0 +1,21 @@
+# CRE-DTS — pinned environment for the post-filing components (September 2026)
+# Python 3.11
+#
+# Covers:
+#   - src/cre_dts/ and tests/          (Technical Design Specification v1.10, Appendix B)
+#   - examples/illustrative_outputs.py (Appendix C)
+#   - examples/adoption_demo.py, examples/small_lender_demo.py (Method-to-Decision Mapping, Attachments 1-2)
+#
+# Does NOT cover the pre-filing prototype files (DTS.py, NLP.py, ALT Data Scraping.py,
+# Integrated Update Interface.py, entity_resolution_Layer.py), which are kept unchanged
+# as committed in May–June 2026.
+
+numpy==2.4.4
+pandas==3.0.2
+scipy==1.17.1
+scikit-learn==1.8.0
+xgboost==3.2.0
+torch==2.14.0
+pyyaml==6.0.3
+matplotlib==3.10.9
+pytest==9.1.1

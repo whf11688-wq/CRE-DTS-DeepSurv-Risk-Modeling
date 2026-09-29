@@ -371,7 +371,7 @@ Nothing here uses real loan data. All results below come from synthetic data and
 
 ### 1. Set up the environment
 
-Requires Python 3.11.
+Requires Python 3.11. On macOS, XGBoost also requires the OpenMP runtime: run `brew install libomp` (Homebrew) before installing the requirements.
 
 ```bash
 git clone https://github.com/whf11688-wq/CRE-DTS-DeepSurv-Risk-Modeling
