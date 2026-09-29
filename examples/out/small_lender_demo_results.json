@@ -1,0 +1,75 @@
+{
+  "seed": 2026,
+  "n_ref_loans": 4000,
+  "n_loans": 180,
+  "n_current": 60,
+  "core_fields": [
+    {
+      "source": "Loan_ID",
+      "target": "loan_id"
+    },
+    {
+      "source": "Prop_Type",
+      "target": "property_type"
+    },
+    {
+      "source": "Stmt_Date",
+      "target": "reporting_period_end"
+    },
+    {
+      "source": "Rcvd_Date",
+      "target": "available_date"
+    },
+    {
+      "source": "Principal_Bal",
+      "target": "balance"
+    },
+    {
+      "source": "NOI_Annual",
+      "target": "noi"
+    },
+    {
+      "source": "Debt_Service_Annual",
+      "target": "debt_service"
+    },
+    {
+      "source": "Collateral_Value",
+      "target": "value_current"
+    },
+    {
+      "source": "Maturity",
+      "target": "maturity_date"
+    }
+  ],
+  "not_held": [
+    "occupancy",
+    "watchlist_flag",
+    "borrower_strength"
+  ],
+  "n_defaults_history": 20,
+  "tier2_min_defaults": 30,
+  "tier2_ok": false,
+  "capacity": {
+    "Watch": 0.2,
+    "Elevated": 0.08,
+    "High": 0.03
+  },
+  "thresholds": {
+    "Watch": 0.010284203104674816,
+    "Elevated": 0.02255639061331749,
+    "High": 0.06849315017461777
+  },
+  "watchlist_counts": {
+    "High": 3,
+    "Elevated": 3,
+    "Watch": 6,
+    "Standard": 48
+  },
+  "bench": {
+    "n": 11,
+    "model_ge6": 9,
+    "rule_ge6": 5,
+    "rule_flag_rate_current": 0.13333333333333333,
+    "model_cutoff_same_rate": 0.012415654957294464
+  }
+}

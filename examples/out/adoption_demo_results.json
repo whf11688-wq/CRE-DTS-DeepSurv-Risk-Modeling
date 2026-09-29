@@ -1,0 +1,261 @@
+{
+  "seed": 2026,
+  "n_loans": 3000,
+  "n_loan_quarters": 58831,
+  "split": {
+    "train": "2014-2018",
+    "calibration": "2019-2020",
+    "purge": "2021",
+    "test": "2022-2023",
+    "n_train": 18442,
+    "n_calib": 12450,
+    "n_test": 13952,
+    "test_default_rate": 0.03411697247706422
+  },
+  "mapping": [
+    {
+      "source": "Loan_Num",
+      "target": "loan_id",
+      "transform": "Renamed"
+    },
+    {
+      "source": "Prop_Type_Cd",
+      "target": "property_type",
+      "transform": "Code list OF/MF/RT/IN mapped to Office/Multifamily/Retail/Industrial"
+    },
+    {
+      "source": "Rpt_Period_End",
+      "target": "reporting_period_end",
+      "transform": "Renamed"
+    },
+    {
+      "source": "Rpt_Recv_Dt",
+      "target": "available_date",
+      "transform": "Renamed; used for the point-in-time join (App. A.1)"
+    },
+    {
+      "source": "Curr_Bal",
+      "target": "balance",
+      "transform": "Renamed"
+    },
+    {
+      "source": "Note_Rate_Pct",
+      "target": "coupon",
+      "transform": "Percent to decimal (\u00f7100)"
+    },
+    {
+      "source": "Net_Op_Inc_TTM",
+      "target": "noi",
+      "transform": "Renamed"
+    },
+    {
+      "source": "Ann_Debt_Svc",
+      "target": "debt_service",
+      "transform": "Renamed"
+    },
+    {
+      "source": "Appraised_Val",
+      "target": "value_current",
+      "transform": "Renamed"
+    },
+    {
+      "source": "Phys_Occ_Pct",
+      "target": "occupancy",
+      "transform": "Percent to decimal (\u00f7100)"
+    },
+    {
+      "source": "Mat_Dt",
+      "target": "maturity_date",
+      "transform": "Renamed; months_to_maturity derived"
+    }
+  ],
+  "not_held": [
+    "watchlist_flag",
+    "borrower_strength"
+  ],
+  "tape_sample": [
+    {
+      "Loan_Num": "IX-00000",
+      "Prop_Type_Cd": "OF",
+      "Rpt_Period_End": "2013-06-30",
+      "Rpt_Recv_Dt": "2013-08-14",
+      "Curr_Bal": "12738348.0",
+      "Note_Rate_Pct": "4.131",
+      "Net_Op_Inc_TTM": "1356595.0",
+      "Ann_Debt_Svc": "526274.0",
+      "Appraised_Val": "20826641.0",
+      "Phys_Occ_Pct": "94.2",
+      "Mat_Dt": "2020-06-30"
+    },
+    {
+      "Loan_Num": "IX-00000",
+      "Prop_Type_Cd": "OF",
+      "Rpt_Period_End": "2013-09-30",
+      "Rpt_Recv_Dt": "2013-11-14",
+      "Curr_Bal": "12738348.0",
+      "Note_Rate_Pct": "4.131",
+      "Net_Op_Inc_TTM": "1379572.0",
+      "Ann_Debt_Svc": "526274.0",
+      "Appraised_Val": "21134773.0",
+      "Phys_Occ_Pct": "95.5",
+      "Mat_Dt": "2020-06-30"
+    },
+    {
+      "Loan_Num": "IX-00000",
+      "Prop_Type_Cd": "OF",
+      "Rpt_Period_End": "2013-12-31",
+      "Rpt_Recv_Dt": "2014-02-14",
+      "Curr_Bal": "12738348.0",
+      "Note_Rate_Pct": "4.131",
+      "Net_Op_Inc_TTM": "1380517.0",
+      "Ann_Debt_Svc": "526274.0",
+      "Appraised_Val": "21104788.0",
+      "Phys_Occ_Pct": "95.7",
+      "Mat_Dt": "2020-06-30"
+    }
+  ],
+  "validation": {
+    "auc": 0.8265857322448125,
+    "brier": 0.02621491067111492,
+    "capture_top10": 0.615546218487395,
+    "rule_flag_rate": 0.25365538990825687,
+    "capture_rule": 0.6365546218487395,
+    "capture_model_at_rule_rate": 0.75
+  },
+  "thresholds": {
+    "Watch": 0.011359947733581066,
+    "Elevated": 0.01666666753590107,
+    "High": 0.05514705926179886
+  },
+  "tolerance": {
+    "Watch": 0.15,
+    "Elevated": 0.07,
+    "High": 0.03
+  },
+  "false_alarm_test": {
+    "Watch": 0.3250964677945978,
+    "Elevated": 0.09179281685960225,
+    "High": 0.05558029088750371
+  },
+  "hit_rate_test": {
+    "Watch": 0.8025210084033614,
+    "Elevated": 0.6281512605042017,
+    "High": 0.5651260504201681
+  },
+  "lead_time": {
+    "All defaults": {
+      "n": 233,
+      "flagged": 0.7381974248927039,
+      "ge6": 0.7167381974248928,
+      "ge12": 0.4721030042918455,
+      "median": 15.0
+    },
+    "Maturity defaults": {
+      "n": 162,
+      "flagged": 0.8580246913580247,
+      "ge6": 0.8333333333333334,
+      "ge12": 0.5123456790123457,
+      "median": 15.0
+    },
+    "Term defaults": {
+      "n": 71,
+      "flagged": 0.4647887323943662,
+      "ge6": 0.4507042253521127,
+      "ge12": 0.38028169014084506,
+      "median": 21.0
+    }
+  },
+  "watchlist_counts": {
+    "High": 157,
+    "Elevated": 33,
+    "Watch": 267,
+    "Standard": 746
+  },
+  "n_current": 1203,
+  "watchlist_sample": [
+    {
+      "loan_id": "IX-02903",
+      "type": "Office",
+      "pd": 1.0,
+      "level": "High",
+      "mtm": 6,
+      "refi_gap": 0.6401389272117354,
+      "dscr": 1.3953678268426881,
+      "ltv": 1.667310096507795,
+      "reasons": "Maturity in 6 months; Current LTV 167%; Occupancy 62%",
+      "action": "Workout and restructuring analysis; extension negotiation; recapitalization; loan sale or risk transfer; loss-reserve review"
+    },
+    {
+      "loan_id": "IX-00846",
+      "type": "Office",
+      "pd": 0.9560725092887878,
+      "level": "High",
+      "mtm": 6,
+      "refi_gap": 0.57151386666773,
+      "dscr": 1.8064894406771952,
+      "ltv": 1.4002786865794075,
+      "reasons": "Maturity in 6 months; Current LTV 140%; Occupancy 83%",
+      "action": "Workout and restructuring analysis; extension negotiation; recapitalization; loan sale or risk transfer; loss-reserve review"
+    },
+    {
+      "loan_id": "IX-01039",
+      "type": "Office",
+      "pd": 0.9168955087661743,
+      "level": "High",
+      "mtm": 0,
+      "refi_gap": 0.5260970517716708,
+      "dscr": 1.1514805620180533,
+      "ltv": 1.266082015828516,
+      "reasons": "At maturity; Current LTV 127%; Occupancy 70%",
+      "action": "Workout and restructuring analysis; extension negotiation; recapitalization; loan sale or risk transfer; loss-reserve review"
+    },
+    {
+      "loan_id": "IX-00242",
+      "type": "Retail",
+      "pd": 0.025974025949835777,
+      "level": "Elevated",
+      "mtm": 9,
+      "refi_gap": 0.28726818013772293,
+      "dscr": 2.057738518134399,
+      "ltv": 0.9119839775437572,
+      "reasons": "Current LTV 91%; Occupancy 72%; Refinance gap 29%: balloon not refinanceable on current terms",
+      "action": "Stressed PD under supervisory scenarios; borrower engagement on a refinancing plan; extension and maturity planning; reserve and liquidity assessment"
+    },
+    {
+      "loan_id": "IX-00883",
+      "type": "Industrial",
+      "pd": 0.025974025949835777,
+      "level": "Elevated",
+      "mtm": 9,
+      "refi_gap": 0.2812846840552253,
+      "dscr": 1.4147437135552805,
+      "ltv": 0.9043914684711483,
+      "reasons": "Current LTV 90%; Occupancy 86%; Refinance gap 28%: balloon not refinanceable on current terms",
+      "action": "Stressed PD under supervisory scenarios; borrower engagement on a refinancing plan; extension and maturity planning; reserve and liquidity assessment"
+    },
+    {
+      "loan_id": "IX-00018",
+      "type": "Retail",
+      "pd": 0.016304347664117813,
+      "level": "Watch",
+      "mtm": 75,
+      "refi_gap": 0.3423641392544018,
+      "dscr": 1.3308922862387271,
+      "ltv": 0.9883889228045731,
+      "reasons": "\u2014",
+      "action": "More frequent monitoring; request updated rent roll and operating statements; refresh valuation inputs"
+    },
+    {
+      "loan_id": "IX-00163",
+      "type": "Industrial",
+      "pd": 0.0,
+      "level": "Standard",
+      "mtm": 60,
+      "refi_gap": 0.0,
+      "dscr": 3.055604465791319,
+      "ltv": 0.631877367310405,
+      "reasons": "\u2014",
+      "action": "Routine data refresh and scoring"
+    }
+  ]
+}
